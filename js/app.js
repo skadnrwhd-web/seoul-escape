@@ -48,6 +48,7 @@ async function init() {
     $('gameSubtitle').textContent = settings.subtitle;
     document.title = `${settings.title}: ${settings.subtitle}`;
 
+    renderSupport(settings.support);
     state.realAvailable = await fileExists('data/real-map.json');
     fillMapSelect();
     fillSelects();
@@ -71,6 +72,24 @@ async function fetchJson(url) {
   } catch {
     throw new Error(`${url} 파일 형식(JSON)이 올바르지 않습니다. 쉼표·따옴표를 확인하세요`);
   }
+}
+
+/** 후원 링크 표시 (settings.support에 https 주소가 있는 항목만, 없으면 영역 전체를 숨김) */
+function renderSupport(support) {
+  const items = [['buyMeACoffee', '☕ Buy Me a Coffee'], ['toss', '💙 토스로 후원']];
+  const box = $('supportLinks');
+  box.textContent = '';
+  for (const [key, label] of items) {
+    const url = String(support?.[key] || '').trim();
+    if (!/^https:\/\//i.test(url)) continue;
+    const a = document.createElement('a');
+    a.href = url;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.textContent = label;
+    box.append(a);
+  }
+  $('support').hidden = box.childElementCount === 0;
 }
 
 async function fileExists(url) {

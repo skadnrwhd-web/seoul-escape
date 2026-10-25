@@ -179,6 +179,20 @@ main { max-width: 1400px; margin: 0 auto; }
 
 .foot { max-width: 1400px; margin: 16px auto 0; text-align: center; color: var(--dim); font-size: 13px; }
 .foot a { color: var(--cyan); }
+.support {
+  max-width: 1400px; margin: 14px auto 0; padding: 12px 16px;
+  display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; justify-content: center;
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+  font-size: 14px; color: var(--dim);
+}
+.support[hidden] { display: none; }
+.support strong { color: var(--goal); font-size: 16px; }
+.support-links a {
+  display: inline-block; margin: 2px 4px; padding: 8px 14px; min-height: 40px;
+  border: 1px solid var(--goal); border-radius: 10px;
+  color: #ffe9b0; font-weight: 800; text-decoration: none;
+}
+.support-links a:hover { background: rgba(255, 197, 49, 0.14); }
 .settings option:disabled { color: #6b7096; }
 
 /* ---------- 영상 대화상자 ---------- */

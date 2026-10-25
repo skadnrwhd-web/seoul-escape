@@ -10,6 +10,12 @@
     "description": "서울 도로망에서 다익스트라와 A* 알고리즘이 누가 먼저 목적지에 도착하는지 겨룹니다. 실제 서울 지도(OpenStreetMap)로도 대결해 보세요!"
   },
 
+  "support": {
+    "_comment": "후원 링크입니다. 주소를 적으면 화면 아래에 '후원하기' 영역이 나타나고, 비워 두면 숨겨집니다. 반드시 실제로 열리는 주소만 적으세요.",
+    "buyMeACoffee": "https://buymeacoffee.com/ujnam80",
+    "toss": ""
+  },
+
   "game": {
     "defaultDifficulty": "normal",
     "defaultScenario": 0,
