@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SEOUL ESCAPE: Dijkstra vs A*</title>
+  <meta name="description" content="서울을 모티브로 한 가상 도로망에서 다익스트라와 A* 알고리즘이 경주하는 브라우저 게임" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="SEOUL ESCAPE: Dijkstra vs A*" />
+  <meta property="og:description" content="서울 도로망에서 다익스트라와 A* 알고리즘이 누가 먼저 목적지에 도착하는지 겨룹니다. 실제 서울 지도(OpenStreetMap)로도 대결해 보세요!" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SEOUL ESCAPE: Dijkstra vs A*" />
+  <meta name="twitter:description" content="서울 도로망에서 다익스트라와 A* 알고리즘이 누가 먼저 목적지에 도착하는지 겨룹니다. 실제 서울 지도(OpenStreetMap)로도 대결해 보세요!" />
+  <meta property="og:url" content="https://skadnrwhd-web.github.io/seoul-escape/" />
+  <meta property="og:image" content="https://skadnrwhd-web.github.io/seoul-escape/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:image" content="https://skadnrwhd-web.github.io/seoul-escape/assets/og-image.png" />
+  <link rel="canonical" href="https://skadnrwhd-web.github.io/seoul-escape/" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="top">
+    <h1 class="title"><span id="gameTitle">SEOUL ESCAPE</span><small id="gameSubtitle">Dijkstra vs A*</small></h1>
+    <p class="mission"><span class="mission-label">MISSION</span> <span id="missionText">불러오는 중…</span></p>
+  </header>
+
+  <main>
+    <section class="arena" aria-label="알고리즘 경주">
+      <article class="panel" data-algo="dijkstra">
+        <div class="panel-head">
+          <h2 class="algo-name">DIJKSTRA</h2>
+          <span class="live" id="live-dijkstra">대기</span>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="canvas-dijkstra" aria-label="다익스트라 탐색 지도"></canvas>
+          <div class="arrive" id="arrive-dijkstra" hidden>도착!</div>
+        </div>
+        <dl class="stats">
+          <div><dt>탐색 노드</dt><dd id="nodes-dijkstra">-</dd></div>
+          <div><dt>경로 길이</dt><dd id="len-dijkstra">-</dd></div>
+          <div><dt>실행 시간</dt><dd id="time-dijkstra">-</dd></div>
+        </dl>
+      </article>
+
+      <article class="panel" data-algo="astar">
+        <div class="panel-head">
+          <h2 class="algo-name">A*</h2>
+          <span class="live" id="live-astar">대기</span>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="canvas-astar" aria-label="A* 탐색 지도"></canvas>
+          <div class="arrive" id="arrive-astar" hidden>도착!</div>
+        </div>
+        <dl class="stats">
+          <div><dt>탐색 노드</dt><dd id="nodes-astar">-</dd></div>
+          <div><dt>경로 길이</dt><dd id="len-astar">-</dd></div>
+          <div><dt>실행 시간</dt><dd id="time-astar">-</dd></div>
+        </dl>
+      </article>
+    </section>
+
+    <section class="result" id="result" hidden aria-live="polite">
+      <strong class="headline" id="resultHeadline"></strong>
+      <ul>
+        <li id="resultNodes"></li>
+        <li id="resultPath"></li>
+        <li id="resultTime"></li>
+      </ul>
+      <p class="note" id="resultNote"></p>
+    </section>
+
+    <section class="controls" aria-label="조작">
+      <div class="btn-row">
+        <button id="btnStart" class="btn primary">▶ 시작</button>
+        <button id="btnPause" class="btn">❚❚ 일시정지</button>
+        <button id="btnResume" class="btn">▶ 재개</button>
+        <button id="btnRestart" class="btn">↺ 재시작</button>
+        <button id="btnSkip" class="btn">⏭ 결과 보기</button>
+        <button id="btnVideo" class="btn video">🎬 영상 만들기</button>
+      </div>
+
+      <div class="settings">
+        <label>지도
+          <select id="selMap"></select>
+        </label>
+        <label>경로
+          <select id="selScenario"></select>
+        </label>
+        <div class="pick">
+          <button id="btnPickStart" class="btn small start">출발점 지정</button>
+          <button id="btnPickGoal" class="btn small goal">목적지 지정</button>
+        </div>
+        <label>난이도
+          <select id="selDifficulty"></select>
+        </label>
+        <button id="btnObstacles" class="btn small">🚧 장애물 재배치</button>
+        <label class="speed">속도 <output id="speedOut">1.0x</output>
+          <input id="rngSpeed" type="range" min="0.25" max="4" step="0.25" value="1" />
+        </label>
+      </div>
+      <p class="hint" id="hint">출발점·목적지를 바꾸려면 "출발점 지정" 또는 "목적지 지정"을 누른 뒤 지도를 클릭하세요.</p>
+    </section>
+
+    <div class="message" id="message" role="alert" hidden></div>
+  </main>
+
+  <footer class="foot">
+    <span id="disclaimer">서울을 모티브로 한 가상 도로망 · 실제 지도 아님</span>
+    <span>· 탐색 수치는 브라우저에서 실제로 계산한 값입니다.</span>
+  </footer>
+
+  <dialog id="videoDialog">
+    <h3>🎬 쇼츠 영상 만들기</h3>
+    <p id="videoStatus">준비 중…</p>
+    <progress id="videoProgress" max="1" value="0"></progress>
+    <div id="videoResult" hidden>
+      <video id="videoPreview" controls playsinline></video>
+      <p class="saved" id="videoSaved"></p>
+    </div>
+    <div class="dialog-buttons">
+      <button id="btnVideoCancel" class="btn">취소</button>
+      <button id="btnVideoClose" class="btn primary" hidden>닫기</button>
+    </div>
+  </dialog>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

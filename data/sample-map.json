@@ -1,0 +1,86 @@
+{
+  "_comment": "서울을 모티브로 한 가상 도시 설정입니다. 좌표 단위는 '가상 km'이며 실제 서울 지도가 아닙니다. 이름·위치·다리·장애물을 자유롭게 고쳐도 됩니다.",
+  "name": "SEOUL ESCAPE 가상 도시",
+  "disclaimer": "서울을 모티브로 한 가상 도로망 · 실제 지도 아님",
+  "unit": "km",
+  "unitLabel": "가상 km",
+  "width": 24,
+  "height": 15,
+  "seed": 20261025,
+
+  "difficulties": {
+    "easy":   { "label": "쉬움",   "cols": 14, "rows": 9,  "jitter": 0.18, "diagonalChance": 0.10, "missingRoadChance": 0.04, "blockedRoadChance": 0.03, "constructionZones": 1 },
+    "normal": { "label": "보통",   "cols": 22, "rows": 14, "jitter": 0.22, "diagonalChance": 0.12, "missingRoadChance": 0.07, "blockedRoadChance": 0.05, "constructionZones": 3 },
+    "hard":   { "label": "어려움", "cols": 32, "rows": 20, "jitter": 0.25, "diagonalChance": 0.14, "missingRoadChance": 0.10, "blockedRoadChance": 0.08, "constructionZones": 6 }
+  },
+
+  "river": {
+    "name": "한강 (가상)",
+    "width": 0.9,
+    "points": [[0, 5.6], [3, 6.4], [6, 7.4], [8, 8.0], [10.5, 8.7], [13, 8.9], [15.5, 8.5], [18, 7.8], [21, 7.5], [24, 6.6]]
+  },
+
+  "bridges": [
+    { "name": "가양대교", "x": 2.4 },
+    { "name": "양화대교", "x": 5.6 },
+    { "name": "마포대교", "x": 8.4 },
+    { "name": "한강대교", "x": 10.6 },
+    { "name": "반포대교", "x": 13.0 },
+    { "name": "성수대교", "x": 15.6 },
+    { "name": "잠실대교", "x": 19.0 },
+    { "name": "천호대교", "x": 22.2 }
+  ],
+
+  "obstacles": [
+    { "name": "북한산", "x": 8.6, "y": 0.4, "r": 1.5 },
+    { "name": "남산",   "x": 11.9, "y": 6.6, "r": 0.6 },
+    { "name": "관악산", "x": 10.4, "y": 14.8, "r": 1.1 },
+    { "name": "대모산", "x": 17.6, "y": 14.4, "r": 0.8 }
+  ],
+
+  "districts": [
+    { "name": "은평", "x": 5.0, "y": 2.4 },
+    { "name": "종로", "x": 11.0, "y": 3.0 },
+    { "name": "성북", "x": 13.8, "y": 2.2 },
+    { "name": "노원", "x": 19.2, "y": 1.4 },
+    { "name": "중랑", "x": 20.5, "y": 3.8 },
+    { "name": "서대문", "x": 7.6, "y": 4.4 },
+    { "name": "중구", "x": 11.6, "y": 5.2 },
+    { "name": "동대문", "x": 15.6, "y": 4.4 },
+    { "name": "마포", "x": 5.6, "y": 6.0 },
+    { "name": "용산", "x": 10.2, "y": 7.3 },
+    { "name": "성동", "x": 14.8, "y": 6.8 },
+    { "name": "광진", "x": 19.0, "y": 6.0 },
+    { "name": "강서", "x": 2.2, "y": 9.2 },
+    { "name": "양천", "x": 4.2, "y": 11.2 },
+    { "name": "영등포", "x": 7.2, "y": 10.2 },
+    { "name": "구로", "x": 4.6, "y": 13.2 },
+    { "name": "동작", "x": 10.2, "y": 11.2 },
+    { "name": "관악", "x": 8.8, "y": 13.2 },
+    { "name": "서초", "x": 13.0, "y": 12.0 },
+    { "name": "강남", "x": 15.6, "y": 10.8 },
+    { "name": "송파", "x": 19.6, "y": 11.2 },
+    { "name": "강동", "x": 22.2, "y": 9.2 }
+  ],
+
+  "places": [
+    { "id": "hongdae",   "name": "홍대입구", "x": 6.4,  "y": 5.6 },
+    { "id": "gimpo",     "name": "김포공항", "x": 0.8,  "y": 8.6 },
+    { "id": "gwanghwa",  "name": "광화문",   "x": 10.8, "y": 4.2 },
+    { "id": "seoulst",   "name": "서울역",   "x": 10.4, "y": 6.0 },
+    { "id": "nowon",     "name": "노원",     "x": 19.0, "y": 1.8 },
+    { "id": "wangsimni", "name": "왕십리",   "x": 15.0, "y": 5.8 },
+    { "id": "yeouido",   "name": "여의도",   "x": 7.8,  "y": 9.2 },
+    { "id": "gangnam",   "name": "강남역",   "x": 15.0, "y": 11.6 },
+    { "id": "jamsil",    "name": "잠실",     "x": 19.6, "y": 9.6 },
+    { "id": "sillim",    "name": "신림",     "x": 8.6,  "y": 13.0 }
+  ],
+
+  "scenarios": [
+    { "name": "홍대입구 → 잠실",   "start": "hongdae",  "goal": "jamsil" },
+    { "name": "김포공항 → 강남역", "start": "gimpo",    "goal": "gangnam" },
+    { "name": "노원 → 신림",       "start": "nowon",    "goal": "sillim" },
+    { "name": "광화문 → 여의도",   "start": "gwanghwa", "goal": "yeouido" },
+    { "name": "왕십리 → 김포공항", "start": "wangsimni","goal": "gimpo" }
+  ]
+}

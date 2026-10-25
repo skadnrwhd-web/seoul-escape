@@ -1,0 +1,30 @@
+{
+  "_comment": "게임 제목과 쇼츠 영상 설정입니다. 숫자(초)를 바꾸면 영상 길이가 바뀝니다. 저장 후 브라우저를 새로고침하세요.",
+  "title": "SEOUL ESCAPE",
+  "subtitle": "Dijkstra vs A*",
+  "mission": "서울 탈출! 목적지까지 최단 경로를 먼저 찾아라",
+
+  "share": {
+    "_comment": "공개 주소를 아는 경우 여기에 적고 'npm run build-site'를 다시 실행하면, 블로그·페이스북·인스타 등에 링크를 붙였을 때 미리보기 카드가 나옵니다. 예: https://내아이디.github.io/seoul-escape/",
+    "siteUrl": "https://skadnrwhd-web.github.io/seoul-escape/",
+    "description": "서울 도로망에서 다익스트라와 A* 알고리즘이 누가 먼저 목적지에 도착하는지 겨룹니다. 실제 서울 지도(OpenStreetMap)로도 대결해 보세요!"
+  },
+
+  "game": {
+    "defaultDifficulty": "normal",
+    "defaultScenario": 0,
+    "stepsPerSecond": 60
+  },
+
+  "video": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "introSeconds": 3,
+    "searchSeconds": 19,
+    "pathSeconds": 5,
+    "statsSeconds": 3,
+    "jpegQuality": 0.92,
+    "hashtags": "#알고리즘 #다익스트라 #Astar #코딩"
+  }
+}
