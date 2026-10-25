@@ -7,6 +7,10 @@
 
 설치나 가입 없이 브라우저(Chrome 권장)에서 바로 실행됩니다. 폰에서도 됩니다.
 
+![SEOUL ESCAPE 화면: 탐색 중 → 최단 경로 → 결과 비교](assets/preview.png)
+
+<p align="center"><img src="assets/demo.gif" alt="SEOUL ESCAPE 데모" width="260"></p>
+
 ## 이런 게임이에요
 - 같은 지도, 같은 출발지, 같은 목적지에서 두 알고리즘이 동시에 달립니다.
 - 먼저 목적지에 닿는 쪽이 이깁니다. 끝나면 **탐색한 교차로 수 · 경로 길이 · 계산 시간**을 비교해 줍니다.
@@ -39,5 +43,6 @@
 실제 서울 지도 데이터: **© OpenStreetMap contributors**, [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/) 라이선스. 데이터 기준일 2026-10-25.
 자세한 내용: https://www.openstreetmap.org/copyright
 
-## 후원
-게임이 마음에 드셨다면 커피 한 잔으로 응원해 주세요. ☕ [Buy Me a Coffee](https://buymeacoffee.com/ujnam80)
+## 응원하기
+- ⭐ 마음에 드셨다면 이 저장소 오른쪽 위의 **Star** 를 눌러 주세요. 큰 힘이 됩니다.
+- ☕ 커피 한 잔으로 응원해 주세요: [Buy Me a Coffee](https://buymeacoffee.com/ujnam80)
