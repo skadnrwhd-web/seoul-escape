@@ -1,5 +1,7 @@
 # SEOUL ESCAPE: Dijkstra vs A*
 
+한국어 · [English](#english)
+
 서울 도로망 위에서 **다익스트라**와 **A\*** 알고리즘이 누가 먼저 목적지에 도착하는지 겨루는 브라우저 게임입니다.
 
 ## ▶ 지금 해보기
@@ -46,3 +48,49 @@
 ## 응원하기
 - ⭐ 마음에 드셨다면 이 저장소 오른쪽 위의 **Star** 를 눌러 주세요. 큰 힘이 됩니다.
 - ☕ 커피 한 잔으로 응원해 주세요: [Buy Me a Coffee](https://buymeacoffee.com/ujnam80)
+
+---
+
+## English
+
+**SEOUL ESCAPE** is a browser game where **Dijkstra** and **A\*** race each other across the Seoul road network to see who reaches the destination first.
+
+### ▶ Play now
+**https://skadnrwhd-web.github.io/seoul-escape/**
+
+No install and no sign-up. It runs in the browser (Chrome recommended), including on your phone.
+
+### What it is
+- Both algorithms run at the same time on the same map, from the same start to the same destination.
+- Whoever reaches the destination first wins. When the race ends, it compares **intersections searched, route length and computation time**.
+- Both algorithms find the **shortest route**. The difference is how many places they search along the way. A\* uses the direction of the destination as a hint, so it wanders less.
+
+Example (real Seoul map, normal difficulty, Hongik Univ. Station to Jamsil Station)
+
+| | Dijkstra | A\* |
+|---|---|---|
+| Intersections searched | 11,557 | 2,180 |
+| Route length | 20.01 km | 20.01 km |
+
+### Two maps
+- **Virtual Seoul**: a generated map that imitates Seoul's structure (the Han River, bridges, district names). It is not the real Seoul map.
+- **Real Seoul (OSM)**: the real OpenStreetMap road network (about 19,000 intersections, one-way streets included).
+
+### Controls
+- ▶ Start / ❚❚ Pause / ▶ Resume / ↺ Restart / ⏭ Show result
+- Pick a route, set the start and destination by clicking the map, choose a difficulty, reshuffle the blocked roads, and change the speed.
+- 🎬 Make video: saves the current race as a vertical video. On this public site it is saved as a browser recording (WebM).
+
+### Good to know
+- Map cost counts only the **distance** along the roads. Traffic lights, congestion, turn bans and speed limits are not included.
+- The red X marks (blocked roads) on harder difficulties are a made-up game setting, not real traffic information.
+- Computation time depends on your device and browser. Small differences are shown as "similar".
+- This repository holds the public release files.
+
+### Map data credit
+Real Seoul map data: **© OpenStreetMap contributors**, licensed under [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/). Data as of 2026-10-25.
+Details: https://www.openstreetmap.org/copyright
+
+### Support
+- ⭐ If you like it, please press **Star** at the top right of this repository. It means a lot.
+- ☕ Buy me a coffee: [Buy Me a Coffee](https://buymeacoffee.com/ujnam80)
